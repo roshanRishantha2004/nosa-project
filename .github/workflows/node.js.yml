@@ -13,7 +13,7 @@ jobs:
         mongodb-version: ['4.6']
     env:
       CI: true
-      MONGO_URL : mongodb://localhost/nosa
+      MONGO_URL : mongodb://localhost/test
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js version ${{ matrix.node-version }}
