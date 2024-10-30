@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix: 
         node-version: [17.x, 19.x]
-        mongodb-version: ['4.6']
+        mongodb-version: ['8.0']
     env:
       CI: true
       MONGO_URL : mongodb://localhost/test
