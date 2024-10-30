@@ -10,14 +10,21 @@ jobs:
     strategy:
       matrix: 
         node-version: [17.x, 19.x]
+        mongodb-version: ['4.6']
     env:
       CI: true
+      MONGO_URL : mongodb://localhost/nosa
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js version ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Use MongoDB form GitHub actions
+        uses: supercharge/mongodb-github-action@1.11.0
+        with: 
+          mongodb-version: ${{ matrix.mongodb-version }}
       - run: npm install
       - run: npm run build --prefix client
       - run: npm test
